@@ -1,0 +1,29 @@
+# Секрети та налаштування з паролями
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Чернетки та особисті нотатки
+drafts/
+*.draft.*
+notes-private*
+
+# Залежності та результати збірки
+node_modules/
+dist/
+build/
+
+# Логи
+*.log
+
+# Службові файли Windows, macOS і OneDrive
+Thumbs.db
+desktop.ini
+.DS_Store
+~$*
+
+# Налаштування редакторів
+.vscode/
+.idea/
