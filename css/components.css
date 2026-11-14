@@ -1,0 +1,103 @@
+/* Software and Computer Museum — кнопки дизайн-системи «Сайт музею», v2. Токени — tokens.css.
+   Правила системи:
+   - кнопки-«пігулки» (radius-pill), підпис — стиль button (18/24, 600);
+   - primary (жовта) — ЛИШЕ «Записатися на курс»; текст ink; на світлому тлі обводиться ink;
+   - під курсором: м'яка тінь і підйом на 2 px; у звичайному й натиснутому стані — без тіні;
+   - рух 150–200 мс, вимикається при prefers-reduced-motion;
+   - фокус: 3 px суцільна рамка, відступ 3 px; museum-blue на світлому тлі, white на синьому. */
+
+.smc-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  min-height: 52px;
+  padding: var(--space-3) var(--space-8);
+  box-sizing: border-box;
+  font: var(--text-button);
+  text-decoration: none;
+  text-align: center;
+  border-radius: var(--radius-pill);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 150ms ease-out, box-shadow 150ms ease-out, background-color 150ms ease-out;
+}
+.smc-btn svg { width: 22px; height: 22px; flex: none; }
+.smc-btn:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+
+/* Primary — жовта, лише «Записатися на курс». Колір тексту закріплено в усіх станах. */
+.smc-btn--primary {
+  background: var(--cta-yellow);
+  color: var(--ink);
+  border-color: var(--ink);
+}
+.smc-btn--primary:hover {
+  color: var(--ink);
+  background: var(--cta-yellow-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-btn-hover);
+}
+.smc-btn--primary:active {
+  color: var(--ink);
+  background: var(--cta-yellow-pressed);
+  transform: none;
+  box-shadow: none;
+}
+
+/* Secondary — рамка й текст museum-blue */
+.smc-btn--secondary {
+  background: var(--white);
+  color: var(--museum-blue);
+  border-color: var(--museum-blue);
+}
+.smc-btn--secondary:hover {
+  color: var(--museum-blue);
+  background: var(--blue-soft);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-btn-secondary-hover);
+}
+.smc-btn--secondary:active {
+  color: var(--museum-blue);
+  background: var(--blue-soft-pressed);
+  transform: none;
+  box-shadow: none;
+}
+
+/* На синьому тлі (підвал): білий контур і текст, під курсором — museum-blue-deep */
+.smc-on-inverse .smc-btn:focus-visible { outline-color: var(--focus-inverse); }
+.smc-on-inverse .smc-btn--secondary { background: transparent; color: var(--white); border-color: var(--white); }
+.smc-on-inverse .smc-btn--secondary:hover,
+.smc-on-inverse .smc-btn--secondary:active { background: var(--museum-blue-deep); color: var(--white); box-shadow: none; }
+
+/* Розміри */
+.smc-btn--lg { min-height: 60px; padding: var(--space-4) var(--space-8); }
+.smc-btn--block { display: flex; width: 100%; }
+
+/* Кнопка дзвінка, закріплена праворуч унизу: «пігулка» museum-blue з білим текстом
+   (white на museum-blue — 7.1:1) і тінню shadow-call. Значок плюс слово «Зателефонувати»:
+   самого значка розуміють не всі. */
+.smc-fab {
+  min-height: 56px;
+  padding: var(--space-3) var(--space-6);
+  background: var(--museum-blue);
+  color: var(--white);
+  border-color: var(--white);
+  box-shadow: var(--shadow-call);
+}
+.smc-fab:hover, .smc-fab:active { background: var(--museum-blue-deep); color: var(--white); }
+/* Сфокусований елемент не ховається під закріпленою кнопкою (WCAG 2.4.11) */
+:root:has(.smc-fab) { scroll-padding-bottom: 96px; }
+/* Кнопка проходить над paper, blue-soft і синім підвалом: синя рамка фокусу з білим ореолом видна всюди */
+.smc-fab:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+  box-shadow: var(--shadow-call), 0 0 0 9px var(--focus-halo);
+}
+
+@media (max-width: 767px) {
+  .smc-btn--lg { min-height: 56px; padding: var(--space-3) var(--space-6); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .smc-btn { transition: none; }
+  .smc-btn:hover { transform: none; }
+}

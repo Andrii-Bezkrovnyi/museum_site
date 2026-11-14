@@ -1,0 +1,88 @@
+/* Software and Computer Museum — токени дизайн-системи «Сайт музею», v2.
+   Джерело: tokens.json дизайн-системи (назви й значення без змін).
+   Нижче — псевдоніми, якими користуються components.css і page.css. */
+
+:root {
+  /* ===== Кольори (tokens.json → color) ===== */
+  --museum-blue: #42578c;        /* основний; текст на paper/white/blue-soft; ніколи як текст на синьому */
+  --museum-blue-deep: #2a3859;   /* підвал, secondary на синьому під курсором */
+  --blue-soft: #e6eaf3;          /* виділена картка курсів, плашки умов, secondary під курсором */
+  --blue-soft-pressed: #d5dcea;  /* secondary у момент натискання */
+  --cta-yellow: #fae530;         /* ЛИШЕ кнопка «Записатися на курс» */
+  --cta-yellow-hover: #fff27a;
+  --cta-yellow-pressed: #e5cf12;
+  --ink: #1f2637;                /* текст і заголовки; рамка кнопки primary */
+  --ink-muted: #525a66;          /* другорядний текст: виробник, рік, дати, підписи */
+  --paper: #f6f5f0;              /* основне тло сторінки */
+  --white: #ffffff;              /* картки; текст на синьому */
+  --museum-grey: #787f81;        /* рамки карток 1 px, роздільники, лінії хронології; НЕ для тексту */
+  --danger: #8a1c1c;             /* лише помилки у формах */
+  --focus-ring: var(--museum-blue);
+
+  /* ===== Шрифти (tokens.json → type.families) ===== */
+  --font-display: Rubik, "Segoe UI", Arial, sans-serif;
+  --font-body: Literata, Georgia, "Times New Roman", serif;
+  --font-mono: "IBM Plex Mono", "Courier New", monospace;
+
+  /* ===== Типографіка (tokens.json → type.groups) ===== */
+  --text-display: 600 60px/68px var(--font-display);         /* letter-spacing -0.005em */
+  --text-display-mobile: 600 34px/42px var(--font-display);
+  --text-h2: 600 40px/48px var(--font-display);
+  --text-h2-mobile: 600 28px/36px var(--font-display);
+  --text-h3: 600 24px/32px var(--font-display);
+  --text-h3-mobile: 600 22px/30px var(--font-display);
+  --text-body-lg: 400 20px/32px var(--font-body);
+  --text-body: 400 18px/28px var(--font-body);
+  --text-body-strong: 600 18px/28px var(--font-body);
+  --text-button: 600 18px/24px var(--font-body);
+  --text-small: 400 16px/24px var(--font-body);              /* лише юридичні посилання в підвалі */
+  --text-label: 500 16px/24px var(--font-mono);              /* letter-spacing 0.06em, великі літери, museum-blue */
+  --text-year: 500 20px/28px var(--font-mono);               /* виробник і рік, дати новин */
+
+  /* ===== Відступи (tokens.json → spacing) ===== */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;   /* поля на смартфоні */
+  --space-6: 24px;   /* відступ картки на смартфоні; проміжок між картками */
+  --space-8: 32px;   /* відступ картки на комп'ютері; поля на планшеті */
+  --space-12: 48px;  /* від заголовка секції до вмісту; мінімальна ціль на смартфоні */
+  --space-16: 64px;  /* секція на смартфоні; поля на комп'ютері */
+  --space-24: 96px;  /* секція на комп'ютері */
+
+  /* ===== Заокруглення (tokens.json → radius) ===== */
+  --radius-sm: 4px;     /* позначки, плашки умов, поле карти */
+  --radius-md: 12px;    /* картки */
+  --radius-pill: 999px; /* кнопки й кругла кнопка дзвінка */
+
+  /* ===== Тіні (tokens.json → shadow) ===== */
+  --shadow-btn-hover: 0 6px 14px rgba(31, 38, 55, 0.28);
+  --shadow-btn-secondary-hover: 0 6px 14px rgba(31, 38, 55, 0.16);
+  --shadow-card: 0 2px 8px rgba(31, 38, 55, 0.08);
+  --shadow-card-hover: 0 10px 24px rgba(31, 38, 55, 0.16);
+  --shadow-hero-card: 0 10px 28px rgba(10, 14, 30, 0.25);
+  --shadow-call: 0 6px 16px rgba(10, 14, 30, 0.35);
+
+  /* ===== Розміри сторінки ===== */
+  --container: 1200px;
+  --measure: 70ch;   /* «довжина рядка — до 70 знаків» */
+
+  /* ===== Псевдоніми для стилів сторінки й компонентів ===== */
+  --surface: var(--white);
+  --surface-alt: var(--blue-soft);
+  --surface-inverse: var(--museum-blue-deep);
+  --text: var(--ink);
+  --text-muted: var(--ink-muted);
+  --text-inverse: var(--white);
+  --link: var(--museum-blue);
+  --link-hover: var(--museum-blue-deep);
+  --border: var(--museum-grey);
+  --border-strong: var(--ink);
+  --cta-bg: var(--cta-yellow);
+  --cta-bg-hover: var(--cta-yellow-hover);
+  --cta-bg-pressed: var(--cta-yellow-pressed);
+  --cta-text: var(--ink);
+  --focus: var(--focus-ring);
+  --focus-inverse: var(--white);
+  --focus-halo: var(--white);
+}
